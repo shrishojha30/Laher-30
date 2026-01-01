@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Laher ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #000;
+  overflow-x: hidden; /* ✅ FIX: prevent bouquet clipping */
+}
+
+section {
+  position: absolute;
+  inset: 0;
+  display: none;
+  padding: 24px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+section.active {
+  display: flex;
+  opacity: 1;
+}
+
+h1 { font-size: 2.8rem; margin-bottom: 20px; }
+h2 { font-size: 2.3rem; margin-bottom: 25px; }
+
+button {
+  margin-top: 30px;
+  padding: 14px 38px;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: #ff5c8a;
+  color: white;
+}
+
+.romantic {
+  background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+  color: #4b0033;
+}
+
+.fireworks {
+  background: radial-gradient(circle at top, #111, #000);
+  color: white;
+}
+
+.fireworks::after {
+  content: "🎆 🎇 🎆 🎇";
+  font-size: 70px;
+  position: absolute;
+  top: 15%;
+  animation: float 3s infinite alternate;
+}
+
+@keyframes float {
+  from { transform: translateY(0); }
+  to { transform: translateY(-25px); }
+}
+
+/* 💕 Floating Hearts */
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: rise 6s linear infinite;
+  opacity: 0.6;
+}
+
+@keyframes rise {
+  from { transform: translateY(0); opacity: 0.6; }
+  to { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* 🎁 Gift Cards – Bigger & Cuter */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  max-width: 520px;
+}
+
+.card {
+  background: linear-gradient(135deg, #fff0f5, #ffd6e8);
+  padding: 45px 25px;
+  border-radius: 28px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(255,0,120,0.25);
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.card:hover {
+  transform: scale(1.12);
+  box-shadow: 0 18px 40px rgba(255,0,120,0.45);
+}
+
+/* 💌 Letter Style */
+.letter {
+  background: rgba(255,255,255,0.95);
+  color: #4b0033;
+  padding: 26px;
+  border-radius: 18px;
+  max-width: 520px;
+  line-height: 1.7;
+  font-size: 1.15rem;
+  white-space: pre-line;
+}
+
+/* 🌸 Bouquet – FIXED & CENTERED */
+.bouquet {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  margin: 10px auto 25px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flower {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 10%, #ff6f91 60%);
+  transform: scale(0);
+  animation: bloom 1.2s forwards;
+}
+
+.flower::after {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  background: #ffd1dc;
+  border-radius: 50%;
+}
+
+@keyframes bloom {
+  to { transform: scale(1); }
+}
+
+/* Proper flower positioning */
+.f1 { top: 20px; left: 110px; animation-delay: 0.2s; }
+.f2 { top: 90px; left: 40px; animation-delay: 0.4s; }
+.f3 { top: 90px; left: 180px; animation-delay: 0.6s; }
+.f4 { top: 150px; left: 110px; animation-delay: 0.8s; }
+
+.stem {
+  position: absolute;
+  width: 6px;
+  height: 190px;
+  background: linear-gradient(to bottom, #3a7d44, #1f4f2a);
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.wrap {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(135deg, #ffd6e0, #ffb6c1);
+  border-radius: 0 0 55px 55px;
+}
+
+/* 🎀 Ribbon FIX */
+.ribbon {
+  position: absolute;
+  bottom: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff5c8a;
+  color: white;
+  padding: 8px 26px;
+  border-radius: 22px;
+  font-size: 1.15rem;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+}
+
+/* ✨ Sparkles */
+.sparkle {
+  position: absolute;
+  font-size: 14px;
+  animation: sparkle 2s infinite;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0; transform: translateY(0); }
+  50% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* 🖼️ Photo Grid */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  max-width: 360px;
+}
+
+.photo {
+  width: 100px;
+  height: 100px;
+  background: #ffd6e8;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<script>
+const TEXT = {
+  intro: "Hiii Laher, tere liye ek cute sa post card !!",
+  newYear: "Happy New Year 😊😊!!",
+  giftTitle: "Gift For You",
+
+  love: `Naya saal shuru ho raha hai, aur dil se bas yahi kehna tha 
+
+ki 2025 already bohot special laga...
+aur uski sabse badi wajah tu thi 💖.
+
+Teri presence, tera pyaar,
+aur tera saath
+meri life ko aur beautiful bana deta hai 🫶
+
+Iss saal bas itna chahta hoon
+ki hum aise hi saath rahein,
+teri neend mai kharab karun 😝, 
+baatein karte rhe,
+hans-te rhe,
+aur grow karein 🥺
+
+Loveee you !! 💖💖💝`,
+
+  bouquet: `Kaash main yeh bouquet
+tujhe apne haathon se de pata 🥺
+woh din bhi bhtt paas hi hai ..
+
+Par tab tak ke liye,
+yeh virtual bouquet
+tere liye 💐💝`
+};
+</script>
+
+<section id="page1" class="romantic active">
+  <h1 id="introText"></h1>
+  <button onclick="go(2)">Yes ❤️</button>
+</section>
+
+<section id="page2" class="fireworks">
+  <h1 id="newYearText"></h1>
+  <button onclick="go(3)">Next ➡️</button>
+</section>
+
+<section id="page3" class="romantic">
+  <h2 id="giftTitle"></h2>
+  <div class="grid">
+    <div class="card" onclick="go(4)">💌 Love Letter</div>
+    <div class="card" onclick="go(5)">💐 Bouquet</div>
+    <div class="card" onclick="go(6)">🖼️ Photos</div>
+  </div>
+</section>
+
+<section id="page4" class="romantic">
+  <h2>Love Letter 💌</h2>
+  <div class="letter" id="loveText"></div>
+  <button onclick="go(3)">Back</button>
+</section>
+
+<section id="page5" class="romantic">
+  <h2>For You 💐</h2>
+
+  <div class="bouquet">
+    <div class="flower f1"></div>
+    <div class="flower f2"></div>
+    <div class="flower f3"></div>
+    <div class="flower f4"></div>
+    <div class="stem"></div>
+    <div class="wrap"></div>
+    <div class="ribbon">Laher 💖</div>
+  </div>
+
+  <div class="letter" id="bouquetText"></div>
+  <button onclick="go(3)">Back</button>
+</section>
+
+<section id="page6" class="romantic">
+  <h2>Meri Favourite Memories Tere Saath 😊 🖼️</h2>
+<div class="photo-grid">
+  <div class="photo">
+    <img src="photos1.jpg" alt="Memory 1">
+  </div>
+  <div class="photo">
+    <img src="photos2.jpg" alt="Memory 2">
+  </div>
+  <div class="photo">
+    <img src="photos3.jpg" alt="Memory 3">
+  </div>
+  <div class="photo">
+    <img src="photos4.jpg" alt="Memory 4">
+  </div>
+  <div class="photo">
+    <img src="photos5.jpg" alt="Memory 5">
+  </div>
+</div>
+
+  <button onclick="go(3)">Back</button>
+</section>
+
+<script>
+function go(n) {
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById("page" + n).classList.add("active");
+}
+
+introText.innerText = TEXT.intro;
+newYearText.innerText = TEXT.newYear;
+giftTitle.innerText = TEXT.giftTitle;
+loveText.innerText = TEXT.love;
+bouquetText.innerText = TEXT.bouquet;
+
+/* Hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerText = "💕";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (16 + Math.random() * 20) + "px";
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 700);
+
+/* Sparkles */
+setInterval(() => {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.innerText = "✨";
+  s.style.left = (45 + Math.random() * 10) + "%";
+  s.style.top = (50 + Math.random() * 10) + "%";
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 2000);
+}, 800);
+</script>
+
+</body>
+</html>
