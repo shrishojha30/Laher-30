@@ -15,7 +15,7 @@
 
 body {
   background: #000;
-  overflow-x: hidden; /* ✅ FIX: prevent bouquet clipping */
+  overflow-x: hidden;
 }
 
 section {
@@ -25,7 +25,7 @@ section {
   padding: 24px;
   text-align: center;
   overflow-y: auto;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   opacity: 0;
@@ -88,50 +88,49 @@ button {
   to { transform: translateY(-110vh); opacity: 0; }
 }
 
-/* 🎁 Gift Cards – Bigger & Cuter */
+/* 🎁 Gift Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  max-width: 520px;
+  gap: 26px;
+  max-width: 560px;
 }
 
 .card {
   background: linear-gradient(135deg, #fff0f5, #ffd6e8);
-  padding: 45px 25px;
+  padding: 40px 20px;
   border-radius: 28px;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   cursor: pointer;
   box-shadow: 0 12px 30px rgba(255,0,120,0.25);
-  transition: transform 0.4s, box-shadow 0.4s;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
   box-shadow: 0 18px 40px rgba(255,0,120,0.45);
 }
 
-/* 💌 Letter Style */
+/* 💌 Text Block */
 .letter {
   background: rgba(255,255,255,0.95);
   color: #4b0033;
   padding: 26px;
   border-radius: 18px;
-  max-width: 520px;
+  max-width: 640px;
   line-height: 1.7;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   white-space: pre-line;
-  z-index: 2;
 }
 
-/* 🌸 Bouquet – FIXED & CENTERED */
+/* 🌸 Bouquet */
 .bouquet {
   position: relative;
   width: 300px;
   height: 420px;
   margin: 20px auto 30px;
-  z-index: 3;
 }
+
 .flower {
   position: absolute;
   width: 80px;
@@ -150,11 +149,8 @@ button {
   border-radius: 50%;
 }
 
-@keyframes bloom {
-  to { transform: scale(1); }
-}
+@keyframes bloom { to { transform: scale(1); } }
 
-/* Proper flower positioning */
 .f1 { top: 20px; left: 110px; animation-delay: 0.2s; }
 .f2 { top: 90px; left: 40px; animation-delay: 0.4s; }
 .f3 { top: 90px; left: 180px; animation-delay: 0.6s; }
@@ -179,7 +175,6 @@ button {
   border-radius: 0 0 55px 55px;
 }
 
-/* 🎀 Ribbon FIX */
 .ribbon {
   position: absolute;
   bottom: 140px;
@@ -189,43 +184,22 @@ button {
   color: white;
   padding: 8px 26px;
   border-radius: 22px;
-  font-size: 1.15rem;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
-/* ✨ Sparkles */
-.sparkle {
-  position: absolute;
-  font-size: 14px;
-  animation: sparkle 2s infinite;
-}
-
-@keyframes sparkle {
-  0% { opacity: 0; transform: translateY(0); }
-  50% { opacity: 1; }
-  100% { opacity: 0; transform: translateY(-20px); }
-}
-
-/* 🖼️ Photo Grid */
+/* 🖼️ Photos */
 .photo-grid {
   display: grid;
   gap: 18px;
   width: 100%;
   max-width: 92vw;
-
-  /* Mobile first */
   grid-template-columns: repeat(2, 1fr);
 }
 
-/* Desktop / large screens */
 @media (min-width: 768px) {
-  .photo-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .photo-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .photo {
-  width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 26px;
   overflow: hidden;
@@ -235,9 +209,7 @@ button {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 20px;
 }
-
 </style>
 </head>
 
@@ -273,88 +245,128 @@ woh din bhi bhtt paas hi hai ..
 
 Par tab tak ke liye,
 yeh virtual bouquet
-tere liye 💐💝`
+tere liye 💐💝`,
+
+  resolution: `💖 Our Little New Year Resolutions 💖
+Laher 💖
+
+People pleaser banna band karna 😊
+Unnecessary chull aur impulsive decisions se thoda door rehna ..
+Zyada productive aur focused rehna 🧠
+Bahar ka zyada nhi khaana ( maximum once a day )
+Drink more water
+Stop / reduce drinking alcohol
+
+Shrish 🐚
+
+Stop Overthinking 😊
+Aim to learn new skills
+Apni studies aur goals pe properly focus karna
+Apna attention span dheere dheere improve karna
+bilkul nhi daatna 🥺
+
+Our Promise 💞
+
+To support each other 😊
+To grow individually ... while growing together 🧑‍🤝‍👩
+To choose each other with love, patience, and understanding — every day 💕`,
+
+  compatibility: `Compatibility :
+Jab ham saath hote hain to simple cheezein bhi special lagni lagti hain ..... 😊
+Dil chahta hai ki time ruk jaaye jab ham saath hote to hain ... 🥺
+Tu mere around calm feel karti hai ... mai tera ADHD satisfy kar deta hun ...
+mai tere around ekdum real self ban jaata hun, like bilkul me ...
+aisa version jo exist bhi karta tha mujhe pata nhi tha ...💞
+tujhe thodi chull rehti hai .. mai thoda calm rehta hun ...
+bilkul perfect combination ...
+Tu meri overthinking ko softly handle karti hai ...
+ham dono long term sochte hain ...
+Sabse important baat…
+hum dono ek-dusre ko genuinely value karte hain,respect dete hain,
+aur ek-dusre ke saamne bilkul real reh sakte hain 💞
+Isi liye tere saath reh kar sukoon bhi milta hai
+aur excitement bhi — dono saath-saath 💖`,
+
+  why: `Why you are the one for me 🥺💞
+Jab mai tujhse pehli baar milla tha 2nd october ko wo dance ke liye pucha tha ...
+wo mere life ka best decision ho gya ...
+mai aaj bhi soch ke hairan aur khush hota hun ki ham log kaise mil gyein !! 💖
+uske baad jiss tarah se hamara plan ban gya 5th ko milne ka .. I am so happy ki wo hua ... pata hai it was too good, like it felt like a spark .... matlab jab ham 5th ko mil kar ghar ja rhe the to I was soo sadd .... par future mei kya likha tha , yeh mujhe uss waqt kahan pata tha 🥰 ....
+
+Mujhe tu starting se hi cute lagti thi, par dheere dheere tu bhtt special lagne lagi... Teri chhoti chhoti baatein, tera care karna, tera simple sa hona .. sab kuch mujhe attractive lagne laga... Tab mujhe feel hua ki main tujhe sirf pasand nahi karta, main tujhe apni girlfriend banana chahta hoon 🥺...
+
+Time ke saath yeh feeling aur strong hoti chali gayi.. Pehle texts, phir calls, phir video calls, har stage pe mujhe tere saath aur zyada comfort, aur zyada happiness milti gayi... Tere saath baat karna mere din ka best part banne laga...
+
+Phir jab ham Udaipur mein dobara mile, aur jab tune mujhe haan kaha… uss din se meri life mein ek alag hi positivity aa gayi.. Maine apne andar ke woh emotions mehsoos kiye jo shayad sirf tere saath hi possible the.... mujhe pata ni nhi tha ki aise emotion exist bhi karte hain .. main itna emotional ho sakta hun, inta caring ya itna jiddi, yeh sab maine tab realize kiya .. maine realize kiya ki mai tere saamne apna bilkul real self hun, no filter, no harkat , bas mai 🥺... 
+
+Teri baatein, teri personality, tera nature, tera andaaz ... sab kuch mujhe aur zyada pyaara lagne laga. Tere saath mujhe ek alag sa sukoon milta hai, jaise duniya thodi slow ho jaati ho aur main bas safe feel karta hoon... bas happy feel karta hun ... 
+
+Jo 2 din hamne delhi mein batayae the, kitne zyada atchee the woh !! it was too - too good !! Mera dil chahta tha ki tujhe delhi hi rakh lun ... na jaane dun wapas udaipur ... hamara haath pakadna , forehead aur hand kiss karna , saath mein ghumna, gaadi mei tera haath pakad ke chalana , tera mere shoulder pe apna chehra rakhna , it was tooooo precious and tooo goood 🥺🥺 .. mai words mei bol hi nhi sakta ki mujhe woh kitnee atche lageinn 
+
+Iss pure safar mein mujhe bina kisi doubt ke samajh aa gaya ki ... Tu sirf meri girlfriend nahi hai .. tu meri comfort, meri happiness, aur mere future ka ek bahut important hissa hai.. Tu hi mere liye “the one” hai 🥺💝 ... lovee you Laher 💞💞`
 };
 </script>
 
-<section id="page1" class="romantic active">
-  <h1 id="introText"></h1>
-  <button onclick="go(2)">Yes ❤️</button>
-</section>
-
-<section id="page2" class="fireworks">
-  <h1 id="newYearText"></h1>
-  <button onclick="go(3)">Next ➡️</button>
-</section>
+<!-- Pages -->
+<section id="page1" class="romantic active"><h1 id="introText"></h1><button onclick="go(2)">Yes ❤️</button></section>
+<section id="page2" class="fireworks"><h1 id="newYearText"></h1><button onclick="go(3)">Next ➡️</button></section>
 
 <section id="page3" class="romantic">
-  <h2 id="giftTitle"></h2>
-  <div class="grid">
-    <div class="card" onclick="go(4)">💌 Love Letter</div>
-    <div class="card" onclick="go(5)">💐 Bouquet</div>
-    <div class="card" onclick="go(6)">🖼️ Photos</div>
-  </div>
+<h2 id="giftTitle"></h2>
+<div class="grid">
+<div class="card" onclick="go(4)">💌 Love Letter</div>
+<div class="card" onclick="go(5)">💐 Bouquet</div>
+<div class="card" onclick="go(6)">🖼️ Photos</div>
+<div class="card" onclick="go(7)">💖 New Year Resolution</div>
+<div class="card" onclick="go(8)">💞 Compatibility</div>
+<div class="card" onclick="go(9)">🥺💝 Why You</div>
+</div>
 </section>
 
-<section id="page4" class="romantic">
-  <h2>Love Letter 💌</h2>
-  <div class="letter" id="loveText"></div>
-  <button onclick="go(3)">Back</button>
-</section>
+<section id="page4" class="romantic"><h2>Love Letter 💌</h2><div class="letter" id="loveText"></div><button onclick="go(3)">Back</button></section>
 
 <section id="page5" class="romantic">
-  <h2>For You 💐</h2>
-
-  <div class="bouquet">
-    <div class="flower f1"></div>
-    <div class="flower f2"></div>
-    <div class="flower f3"></div>
-    <div class="flower f4"></div>
-    <div class="stem"></div>
-    <div class="wrap"></div>
-    <div class="ribbon">Laher 💖</div>
-  </div>
-
-  <div class="letter" id="bouquetText"></div>
-  <button onclick="go(3)">Back</button>
+<h2>For You 💐</h2>
+<div class="bouquet">
+<div class="flower f1"></div><div class="flower f2"></div><div class="flower f3"></div><div class="flower f4"></div>
+<div class="stem"></div><div class="wrap"></div><div class="ribbon">Laher 💖</div>
+</div>
+<div class="letter" id="bouquetText"></div>
+<button onclick="go(3)">Back</button>
 </section>
 
 <section id="page6" class="romantic">
-  <h2>Meri Favourite Memories Tere Saath 😊 🖼️</h2>
+<h2>Meri Favourite Memories Tere Saath 😊 🖼️</h2>
 <div class="photo-grid">
-  <div class="photo">
-    <img src="photos1.jpg" alt="Memory 1">
-  </div>
-  <div class="photo">
-    <img src="photos2.jpg" alt="Memory 2">
-  </div>
-  <div class="photo">
-    <img src="photos3.jpg" alt="Memory 3">
-  </div>
-  <div class="photo">
-    <img src="photos4.jpg" alt="Memory 4">
-  </div>
-  <div class="photo">
-    <img src="photos5.jpg" alt="Memory 5">
-  </div>
+  <div class="photo"><img src="photos1.jpg"></div>
+  <div class="photo"><img src="photos2.jpg"></div>
+  <div class="photo"><img src="photos3.jpg"></div>
+  <div class="photo"><img src="photos4.jpg"></div>
+  <div class="photo"><img src="photos5.jpg"></div>
+  <div class="photo"><img src="photos6.jpg"></div>
 </div>
 
-  <button onclick="go(3)">Back</button>
+<button onclick="go(3)">Back</button>
 </section>
 
+<section id="page7" class="romantic"><h2>💖 Our Little New Year Resolutions 💖</h2><div class="letter" id="resText"></div><button onclick="go(3)">Back</button></section>
+<section id="page8" class="romantic"><h2>💞 Compatibility</h2><div class="letter" id="compText"></div><button onclick="go(3)">Back</button></section>
+<section id="page9" class="romantic"><h2>🥺💝 Why You</h2><div class="letter" id="whyText"></div><button onclick="go(3)">Back</button></section>
+
 <script>
-function go(n) {
-  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
-  document.getElementById("page" + n).classList.add("active");
+function go(n){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById("page"+n).classList.add("active");
 }
-
-introText.innerText = TEXT.intro;
-newYearText.innerText = TEXT.newYear;
-giftTitle.innerText = TEXT.giftTitle;
-loveText.innerText = TEXT.love;
-bouquetText.innerText = TEXT.bouquet;
-
-/* Hearts */
+introText.innerText=TEXT.intro;
+newYearText.innerText=TEXT.newYear;
+giftTitle.innerText=TEXT.giftTitle;
+loveText.innerText=TEXT.love;
+bouquetText.innerText=TEXT.bouquet;
+resText.innerText=TEXT.resolution;
+compText.innerText=TEXT.compatibility;
+whyText.innerText=TEXT.why;
+/* 💕 Restore flying hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
@@ -365,16 +377,6 @@ setInterval(() => {
   setTimeout(() => heart.remove(), 6000);
 }, 700);
 
-/* Sparkles */
-setInterval(() => {
-  const s = document.createElement("div");
-  s.className = "sparkle";
-  s.innerText = "✨";
-  s.style.left = (45 + Math.random() * 10) + "%";
-  s.style.top = (50 + Math.random() * 10) + "%";
-  document.body.appendChild(s);
-  setTimeout(() => s.remove(), 2000);
-}, 800);
 </script>
 
 </body>
